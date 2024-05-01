@@ -1,5 +1,21 @@
+# linuxptp
 
-* Introduction
+* This repository is copied from  [richardcochran's github](https://github.com/richardcochran/linuxptp.git) and [TSN Documentation Project](https://tsn.readthedocs.io/_downloads/f329e8dec804247b1dbb5835bd949e6f/check_clocks.c). 
+
+### Installation
+
+```
+make
+make install # install the programs and man pages into /usr/local
+```
+
+- If you compiled your own kernel (and the headers are not installed into the system path), then you should set the environment variable ```KBUILD_OUTPUT```. 
+- You can change the installation directories by setting the variables prefix, such as ```sbindir```, ```mandir```, and ```man8dir```, on the **make** command line.
+- The following text is directly copied from [richardcochran's github](https://github.com/richardcochran/linuxptp.git). 
+
+---
+
+### Introduction
 
   This software is an implementation of the Precision Time Protocol
   (PTP) according to IEEE standard 1588 for Linux. The dual design
@@ -8,13 +24,17 @@
   (API) offered by the Linux kernel. Supporting legacy APIs and other
   platforms is not a goal.
 
-* License
+---
+
+### License
 
   The software is copyrighted by the authors and is licensed under the
   GNU General Public License. See the file, COPYING, for details of
   the license terms.
 
-* Features
+---
+
+### Features
 
   - Supports hardware and software time stamping via the Linux
     SO_TIMESTAMPING socket option.
@@ -51,7 +71,9 @@
 
   - Supports bonded, IPoIB, and vlan interfaces.
 
-* Getting the Code
+---
+
+### Getting the Code
 
   You can download the latest released version at Source Forge.
 
@@ -60,32 +82,34 @@
   The source code is managed using the git version control system. To
   get your own copy of the project sources, use the following command.
 
-#+BEGIN_EXAMPLE
-  git clone git://git.code.sf.net/p/linuxptp/code linuxptp
-#+END_EXAMPLE
+```
+git clone git://git.code.sf.net/p/linuxptp/code linuxptp
+```
 
   If the git protocol is blocked by your local area network, then you
   can use the alternative HTTP protocol instead.
 
-#+BEGIN_EXAMPLE
-  git clone http://git.code.sf.net/p/linuxptp/code linuxptp
-#+END_EXAMPLE
+```
+git clone http://git.code.sf.net/p/linuxptp/code linuxptp
+```
 
-* System Requirements
+---
+
+### System Requirements
 
   In order to run this software, you need Linux kernel version 3.0 or
   newer.  Check whether your network interface supports PTP with the
   following command.
 
-#+BEGIN_EXAMPLE
-  ethtool -T eth0
-#+END_EXAMPLE
+```
+ethtool -T eth0
+```
 
   This command shows whether a MAC supports hardware or software time
   stamping.  The following example output indicates support for
   hardware time stamping.
 
-#+BEGIN_EXAMPLE
+```
 Time stamping parameters for eth6:
 Capabilities:
         hardware-transmit     (SOF_TIMESTAMPING_TX_HARDWARE)
@@ -101,14 +125,14 @@ Hardware Transmit Timestamp Modes:
 Hardware Receive Filter Modes:
         none                  (HWTSTAMP_FILTER_NONE)
         all                   (HWTSTAMP_FILTER_ALL)
-#+END_EXAMPLE
+```
 
   The next example shows the case where the MAC only supports software
   time stamping.  The ~ptp4l~ program requires either the ~-S~ command
   line argument or the ~time_stamping software~ configuration option
   when using such interfaces.
 
-#+BEGIN_EXAMPLE
+```
 Time stamping parameters for enp6s0:
 Capabilities:
         software-transmit     (SOF_TIMESTAMPING_TX_SOFTWARE)
@@ -117,16 +141,18 @@ Capabilities:
 PTP Hardware Clock: none
 Hardware Transmit Timestamp Modes: none
 Hardware Receive Filter Modes: none
-#+END_EXAMPLE
+```
 
-  Note the ~software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)~
+  * Note the ~software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)~
   capability.  If this is lacking, then the MAC cannot be used at
   all.  However, adding this capability entails adding a single line
   of code to the device driver.
 
-* Installation
+---
 
-   1. Just type 'make'
+### Installation
+
+   1. Just type 'make' 
 
    2. If you compiled your own kernel (and the headers are not
       installed into the system path), then you should set the
@@ -137,61 +163,65 @@ Hardware Receive Filter Modes: none
       directories by setttings the variables prefix, sbindir, mandir,
       and man8dir on the make command line.
 
-* Getting Involved
+---
+
+### Getting Involved
 
   The software development is hosted at Source Forge.
 
   https://sourceforge.net/projects/linuxptp/
 
-** Reporting Bugs
+##### Reporting Bugs
 
    Please report any bugs or other issues with the software to the
    linuxptp-users mailing list.
 
    https://lists.sourceforge.net/lists/listinfo/linuxptp-users
 
-** Development
+##### Development
 
    If you would like to get involved in improving the software, please
    join the linuxptp-devel mailing list.
 
    https://lists.sourceforge.net/lists/listinfo/linuxptp-devel
 
-*** Submitting Patches
+##### Submitting Patches
 
-   1. Before submitting patches, please make sure that you are starting
-      your work on the *current HEAD* of the git repository.
+  1. Before submitting patches, please make sure that you are starting
+    your work on the *current HEAD* of the git repository.
 
-   2. Please checkout the ~CODING_STYLE.org~ file for guidelines on how to
-      properly format your code.
+  2. Please checkout the ~CODING_STYLE.org~ file for guidelines on how to
+    properly format your code.
 
-   3. Describe your changes. Each patch will be reviewed, and the reviewers
-      need to understand why you did what you did.
+  3. Describe your changes. Each patch will be reviewed, and the reviewers
+    need to understand why you did what you did.
 
-   4. *Sign-Off* each commit, so the changes can be properly attributed to
-      you and you explicitely give your agreement for distribution under
-      linuxptp's license. Signing-off is as simple as:
+  4. **Sign-Off** each commit, so the changes can be properly attributed to
+    you and you explicitely give your agreement for distribution under
+    linuxptp's license. Signing-off is as simple as:
 
-      #+BEGIN_EXAMPLE
-      git commit -s
-      #+END_EXAMPLE
+```
+git commit -s
+```
 
-      or by adding the following line (replace your real name and email)
-      to your patch:
+or by adding the following line (replace your real name and email)
+to your patch:
 
-      #+BEGIN_EXAMPLE
-      Signed-off-by: Random J Developer <random@developer.example.org>
-      #+END_EXAMPLE
+```
+Signed-off-by: Random J Developer <random@developer.example.org>
+```
 
-   5. Finally, send your patches via email to the linuxptp-devel mailing
-      list, where they will be reviewed, and eventually be included in the
-      official code base.
+  5. Finally, send your patches via email to the linuxptp-devel mailing
+    list, where they will be reviewed, and eventually be included in the
+    official code base.
 
-      #+BEGIN_EXAMPLE
-      git send-email --to linuxptp-devel@lists.sourceforge.net origin/master
-      #+END_EXAMPLE
+```
+git send-email --to linuxptp-devel@lists.sourceforge.net origin/master
+```
 
-* Thanks
+---
+
+### Thanks
 
   Thanks to AudioScience Inc for sponsoring the 8021.AS support.
 
