@@ -1,6 +1,23 @@
 # linuxptp
 
 * This repository is copied from  [richardcochran's github](https://github.com/richardcochran/linuxptp.git) and [TSN Documentation Project](https://tsn.readthedocs.io/_downloads/f329e8dec804247b1dbb5835bd949e6f/check_clocks.c). 
+* Version 4.2
+
+### Modules
+
+- ```ptp4l```: To synchronize the system clock with a PTP master clock over Ethernet.
+- ```phc2sys```: To synchronize the system clock with a PTP Hardware Clock (PHC). 
+- ```ts2phc```: To synchronize PTP Hardware Clocks (PHC) to external time stamps. 
+- ```tz2alt```: To monitor daylight savings time changes and publish them to PTP stack.
+- ```nsm```: NetSync Monitor (NSM) is an extension to the Precision Time Protocol (PTP), which enables a client to measure the offset of its clock against any PTP clock in the network which supports NSM.
+- ```pmc```: The PTP management client (PMC) can be used to obtain additional information from ptp4l.  
+- ```timemaster```: To run NTP with PTP as reference clocks. 
+- ```hwstamp_ctl```: To set time stamping policy at the driver level. 
+- ```phc_ctl```: To directly control PHC device clock
+- ```check_clocks```
+- ```testptp```
+
+---
 
 ### Installation
 

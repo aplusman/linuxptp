@@ -11,3 +11,5 @@
 /timemaster
 /ts2phc
 /tz2alt
+/check_clocks
+/testptp
