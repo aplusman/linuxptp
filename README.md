@@ -1,21 +1,21 @@
-# linuxptp
+# linuxptp (version 4.2)
 
 * This repository is copied from  [richardcochran's github](https://github.com/richardcochran/linuxptp.git) and [TSN Documentation Project](https://tsn.readthedocs.io/_downloads/f329e8dec804247b1dbb5835bd949e6f/check_clocks.c). 
-* Version 4.2
+* If gPTP is considered, then <b>[Excelfore gPTP](https://github.com/xl4-shiro/excelfore-gptp.git)</b> is also an option. 
 
 ### Modules
 
-- ```ptp4l```: To synchronize the system clock with a PTP master clock over Ethernet.
-- ```phc2sys```: To synchronize the system clock with a PTP Hardware Clock (PHC). 
-- ```ts2phc```: To synchronize PTP Hardware Clocks (PHC) to external time stamps. 
+- <b>```ptp4l```</b>: To synchronize the system clock with a Precision Time Protocol (PTP) master clock over Ethernet.
+- <b>```phc2sys```</b>: To synchronize the system clock with a PTP Hardware Clock (PHC). 
+- <b>```ts2phc```</b>: To synchronize PHC to external time stamps. 
 - ```tz2alt```: To monitor daylight savings time changes and publish them to PTP stack.
-- ```nsm```: NetSync Monitor (NSM) is an extension to the Precision Time Protocol (PTP), which enables a client to measure the offset of its clock against any PTP clock in the network which supports NSM.
-- ```pmc```: The PTP management client (PMC) can be used to obtain additional information from ptp4l.  
+- ```nsm```: NetSync Monitor (<b>NSM</b>) is an extension to the PTP, which enables a client to measure the offset of its clock against any PTP clock in the network which supports NSM.
+- ```pmc```: The PTP management client (<b>PMC</b>) can be used to obtain additional information from ptp4l.  
 - ```timemaster```: To run NTP with PTP as reference clocks. 
 - ```hwstamp_ctl```: To set time stamping policy at the driver level. 
 - ```phc_ctl```: To directly control PHC device clock
-- ```check_clocks```
-- ```testptp```
+- ```check_clocks```: To verify whether Linux PTP daemons (ptp4l and phc2sys) have been properly configured and the clocks have been synchronized. 
+- ```testptp```: To test time syncronization features such as one pulse per second (1PPS). 
 
 ---
 
